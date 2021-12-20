@@ -1,0 +1,33 @@
+<h3>Escolha seu horário</h3>
+<div class="main">
+  
+  <div class="data">
+    <mat-datepicker-toggle [for]="resultPicker"></mat-datepicker-toggle>
+    <mat-form-field>
+      <mat-label>Pick a date</mat-label>
+      <input matInput
+            #resultPickerModel="ngModel"
+            [matDatepicker]="resultPicker"
+            [(ngModel)]="data"
+            (ngModelChange)="listarHorariosDisponiveis()">
+      <mat-datepicker #resultPicker>
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="horario">
+    <mat-form-field appearance="fill">
+      <mat-label>Hora</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let horario of horariosDisponiveis" [value]="horario" (click)="alterarHora(horario)">
+          {{horario}}h
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="botao">
+    <button mat-raised-button (click)="cadastrar()">Cadastrar</button>
+  </div>
+  
+</div>

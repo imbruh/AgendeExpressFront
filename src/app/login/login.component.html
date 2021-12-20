@@ -1,0 +1,108 @@
+<div class="tela-login">
+  
+  <app-texto-login style="width: 50%"></app-texto-login>
+
+  <div class="form-body" style="width: 50%;">
+    <div class="row">
+      <div class="form-holder">
+        <div class="form-content">
+          <div class="form-items">
+            <div class="login-escolha">
+              
+              <h3 *ngIf="loginCliente" style="font-size: 25px;">
+                Login Cliente  
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                </svg>
+             </h3>
+
+             <h3 *ngIf="!loginCliente" style="font-size: 25px;">
+              Login Empresa  
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
+                <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
+              </svg>
+           </h3>
+
+             <h6 *ngIf="loginCliente" (click)="trocarUsuario()">
+               Mudar para empresa
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+              </svg>
+              </h6>
+
+             <h6 *ngIf="!loginCliente" (click)="trocarUsuario()">
+               Mudar para cliente
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+              </svg>
+              </h6>
+            </div>
+            <p>Preencha os campos abaixo.</p>
+            <form class="requires-validation" novalidate>
+
+              <div class="col-md-12" *ngIf="loginCliente">
+                <input [(ngModel)]="cliente.nomeUsuario" class="form-control" type="text" name="usuario" placeholder="Nome de usuário" required>
+                <div class="invalid-feedback"> O campo nome de usuario não pode ficar em branco</div>
+              </div>
+              <div class="col-md-12" *ngIf="!loginCliente">
+                <input [(ngModel)]="empresa.cnpj" class="form-control" type="text" name="cnpj" placeholder="CNPJ" required>
+                <div class="invalid-feedback">O campo CNPJ não pode ficar em branco</div>
+              </div>
+
+              <div class="col-md-12">              
+                  <input *ngIf="loginCliente" [(ngModel)]="cliente.senha" [ngModelOptions]="{standalone: true}" class="form-control" type="password" name="senha" placeholder="Senha" required>
+                  <input *ngIf="!loginCliente" [(ngModel)]="empresa.senha" [ngModelOptions]="{standalone: true}" class="form-control" type="password" name="senha" placeholder="Senha" required>
+                <div class="valid-feedback">Senha</div>
+                <div class="invalid-feedback">A senha não pode ficar em branco</div>
+              </div>
+
+              <div class="col-md-12" *ngIf="loginCliente">
+                <label for="empresa" style="margin-top:4%;">Escolha uma empresa</label>
+                <select class="form-select" aria-label="Default select example" [(ngModel)]="cliente.idEmpresa" [ngModelOptions]="{standalone: true}" required>
+                  <option *ngFor="let empresa of empresas" value={{empresa.id}}>{{empresa.nome}}</option>
+                </select>
+              </div>
+
+              <div class="form-button mt-3" style="text-align: center;">
+                <button id="submit" type="submit" class="btn btn-primary" (click)="login()">Login</button>
+              </div>
+
+              <div class="form-button mt-3" style="text-align: center;">
+                <p *ngIf="loginCliente" style="text-align: center;">Não tem uma conta? <span [routerLink]="['/cadastro-cliente']" style="font-weight: bold; cursor: pointer;">Cadastre-se</span></p>
+                <p *ngIf="!loginCliente" style="text-align: center;">Não tem uma conta? <span [routerLink]="['/cadastro-empresa']" style="font-weight: bold; cursor: pointer;">Cadastre-se</span></p>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p style="margin-left: 1%;">© 2021 por AgendeExpress.</p>
+</div>
+
+<script>
+
+  (function () {
+    'use strict'
+    const forms = document.querySelectorAll('.requires-validation')
+    Array.from(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+
+</script>

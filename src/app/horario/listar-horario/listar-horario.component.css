@@ -1,0 +1,118 @@
+.menu {
+    background-color: #a45785;
+    padding: 0.6%;
+    display: flex;
+    justify-content: space-between;
+    /* position: fixed;
+    width: 100%;
+    height: 75px;
+    top: 0;
+    z-index: 100; */
+    align-items: center;
+}
+
+.nome-empresa {
+    margin-left: 1%; 
+}
+
+.menu-icone {
+    display: flex;
+    font-size: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-button {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.menu-button img {
+    height: 12vh;
+}
+
+
+.menu-nome-usuario {
+    text-align: center;
+    font-size: 16px;
+}
+
+.menu-pesquisar {
+    padding-top: 15px;
+    padding-right: 10px;
+    width: 250px;
+}
+
+.home-button {
+    display: flex;
+    align-items: center;
+    margin-top: 60%;
+    font-size: 50px;
+}
+
+.calendario-data {
+    display: flex;
+    align-items: center;
+    margin-top: 1%;
+    margin-left: 3%;
+    justify-content: space-between;
+}
+
+.calendario-data i {
+    font-size: 30px;
+}
+
+
+.calendario-data p {
+    margin: 10px;
+    font-size: 20px;
+}
+
+.calendario-label {
+    display: flex;
+    align-items: center;
+}
+
+.btn-acoes{
+    margin-left: 3%;
+}
+
+.btn-acoes button {
+    font-size: 15px;
+}
+
+.cards-agendamentos {
+    display: flex;
+    margin-top: 3%;   
+    padding-bottom: 5%; 
+    flex-wrap: wrap;
+}
+
+.cards-agendamentos mat-card{
+    width: 10%;
+    margin-left: 3%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.example-button-container {
+    position: fixed;
+    bottom: 8%;
+    right: 3%;
+}
+
+.footer {
+    background-color: #a45785;
+    bottom: 0px;
+    position: fixed;
+    width: 100%;
+    height: 4%;
+    
+}
+
+/* .teste {
+    height: 75px;
+} */

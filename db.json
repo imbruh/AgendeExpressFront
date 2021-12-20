@@ -1,0 +1,19 @@
+{
+  "cliente": [
+    {
+      "nome": "Teste",
+      "telefone": "88888888",
+      "usuario": "teste",
+      "senha": "teste",
+      "id": 2
+    }
+  ],
+  "empresa": [
+    {
+      "nome": "PicaPau",
+      "cnpj": "aaaaaaaa",
+      "senha": "12345",
+      "id": 1
+    }
+  ]
+}

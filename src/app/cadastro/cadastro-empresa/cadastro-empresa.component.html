@@ -1,0 +1,65 @@
+<app-menu *ngIf="empresaAtualizar.id!=undefined"></app-menu>
+
+<div class="form-body">
+  <div class="row">
+    <div class="form-holder">
+      <div class="form-content">
+        <div class="form-items">
+            <h3 *ngIf="empresaAtualizar.id!=undefined">Editar Empresa</h3>
+            <h3 *ngIf="empresaAtualizar.id==undefined">Cadastro Empresas</h3>
+          <p>Preencha os campos abaixo.</p>
+          <form class="requires-validation" novalidate>
+
+            <div class="col-md-12">
+              <input *ngIf="empresaAtualizar.id!=undefined" [(ngModel)]="empresaAtualizar.nome" [ngModelOptions]="{standalone: true}" class="form-control" type="text" name="name" placeholder="Nome" required>
+              <input *ngIf="empresaAtualizar.id==undefined" [(ngModel)]="empresa.nome" [ngModelOptions]="{standalone: true}" class="form-control" type="text" name="name" placeholder="Nome" required>
+              <div class="valid-feedback">Nome válido</div>
+              <div class="invalid-feedback"> O campo não pode ficar em branco!</div>
+            </div>
+
+            <div class="col-md-12">
+              <input *ngIf="empresaAtualizar.id==undefined" [(ngModel)]="empresa.cnpj" [ngModelOptions]="{standalone: true}" class="form-control" type="text" name="cnpj" placeholder="CNPJ" required>
+              <div class="valid-feedback">CNPJ válido</div>
+              <div class="invalid-feedback">CNPJ o campo não pode ficar em branco!</div>
+            </div>
+
+            <div class="col-md-12">
+              <input *ngIf="empresaAtualizar.id!=undefined" [(ngModel)]="empresaAtualizar.senha" [ngModelOptions]="{standalone: true}" class="form-control" type="password" name="password" placeholder="Senha" required>
+              <input *ngIf="empresaAtualizar.id==undefined" [(ngModel)]="empresa.senha" [ngModelOptions]="{standalone: true}" class="form-control" type="password" name="password" placeholder="Senha" required>
+              <div class="valid-feedback">Password válido</div>
+              <div class="invalid-feedback">Password o campo não pode ficar em branco!</div>
+            </div>
+            <div class="form-button mt-3" style="text-align: center">
+              <button *ngIf="empresaAtualizar.id!=undefined" id="submit" type="submit" class="btn btn-primary" (click)="atualizarEmpresa()">Atualizar</button>
+              <button *ngIf="empresaAtualizar.id==undefined" id="submit" type="submit" class="btn btn-primary" (click)="cadastrarEmpresa()">Cadastrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>	
+
+<div class="footer">
+    <p style="margin-left: 1%;">© 2021 por AgendeExpress.</p>
+</div>
+
+<script>
+
+  (function () {
+    'use strict'
+    const forms = document.querySelectorAll('.requires-validation')
+    Array.from(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+
+</script>

@@ -1,0 +1,37 @@
+<app-menu></app-menu>
+
+<div class="calendario-data">
+    <div class="calendario-label">
+        <i class="fas fa-calendar-alt"></i>
+        <p>{{dataHojeFormatada}}</p>
+    </div>
+
+    <mat-form-field appearance="fill" style="margin-top: 2%; margin-right: 4%;">
+        <mat-label>Escolha uma data</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="data" (ngModelChange)="listarHorarioPorDia()" disabled>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker disabled="false"></mat-datepicker>
+    </mat-form-field>
+</div>
+
+<div class="btn-acoes" *ngIf="clienteLogado">
+    <button mat-raised-button style="background-color: #a1c0a1;" (click)="openDialogCadastroHorario()"><i class="fas fa-plus-circle" style="margin-right: 4%;"></i>Cadastrar horário</button>
+    <button mat-raised-button style="background-color: #dfd0af; margin-left: 2%;" (click)="openDialogCancelarHorario()"><i class="fas fa-times-circle" style="margin-right: 4%;"></i>Cancelar horário</button>
+</div>
+
+<div class="cards-agendamentos">
+    <mat-card *ngFor="let h of horarios;" style="background-color: #a45785;">
+        <mat-card-subtitle style="color: white;">{{h.diaSemana}} {{h.dia}}/{{h.mes}}/{{h.ano}}</mat-card-subtitle>
+        <mat-card-title style="color: white;">{{h.hora}}:00h</mat-card-title>     
+    </mat-card>
+</div>
+
+<div class="example-button-container">
+    <button mat-mini-fab style="background-color: #85586c;" (click)="openDialogMensagem()">
+        <i class="fas fa-comment" style="color: white; font-size: 18px;"></i>
+    </button>
+</div>
+
+<div class="footer">
+    <p style="margin-left: 1%;">© 2021 por AgendeExpress.</p>
+</div>

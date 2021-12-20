@@ -1,0 +1,21 @@
+<div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Usuario:</strong> alo</li>
+    <li class="list-group-item"><strong>Empresa:</strong> oi</li>
+  </ul>
+</div>
+
+<form class="example-form input-msg">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <input style="height: 5%;" matInput #message maxlength="256" placeholder="Fale conosco">
+    <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+  
+    <div class="example-button-container btn-enviar">
+      <button mat-mini-fab color="warn" style="background-color: #a45785">
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+  </mat-form-field>
+</form>
+
+

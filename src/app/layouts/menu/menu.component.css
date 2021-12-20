@@ -1,0 +1,52 @@
+.menu {
+    background-color: #a45785;
+    padding: 0.6%;
+    display: flex;
+    justify-content: space-between;
+    /* position: fixed;
+    width: 100%;
+    height: 75px;
+    top: 0;
+    z-index: 100; */
+    align-items: center;
+}
+
+.nome-empresa {
+    margin-left: 1%; 
+}
+
+.menu-icone {
+    display: flex;
+    font-size: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-button {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.menu-button img {
+    height: 12vh;
+}
+
+
+.menu-nome-usuario {
+    text-align: center;
+    font-size: 16px;
+}
+
+.menu-pesquisar {
+    padding-top: 15px;
+    padding-right: 10px;
+    width: 250px;
+}
+
+.home-button {
+    display: flex;
+    align-items: center;
+    margin-top: 60%;
+    font-size: 50px;
+}

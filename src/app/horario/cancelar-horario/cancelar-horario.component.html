@@ -1,0 +1,18 @@
+<table *ngIf="horariosDoCliente.length > 0" class="table">
+  <thead>
+    <tr>
+      <th scope="col">Data</th>
+      <th scope="col">Hora</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let horario of horariosDoCliente">
+      <td>{{horario.dia}}/{{horario.mes}}/{{horario.ano}}</td>
+      <td>{{horario.hora}}:00h</td>
+      <td><i class="fas fa-trash" style="cursor: pointer;" (click)="cancelarHorario(horario)"></i></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 *ngIf="horariosDoCliente.length == 0">Você ainda não possui horários agendados.</h4>

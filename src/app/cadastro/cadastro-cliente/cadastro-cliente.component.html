@@ -1,0 +1,80 @@
+<app-menu *ngIf="clienteAtualizar.id!=undefined"></app-menu>
+
+<div class="form-body">
+  <div class="row">
+    <div class="form-holder">
+      <div class="form-content">
+        <div class="form-items">
+          <h3 *ngIf="clienteAtualizar.id==undefined">Cadastro Cliente</h3>
+          <h3 *ngIf="clienteAtualizar.id!=undefined">Editar Cliente</h3>
+          <p>Preencha os campos abaixo.</p>
+          <form class="requires-validation" novalidate>
+
+            <div class="col-md-12">
+              <input *ngIf="clienteAtualizar.id==undefined" [(ngModel)]="cliente.nome" [ngModelOptions]="{standalone: true}" class="form-control" type="text" name="name" placeholder="Nome" required>
+              <input *ngIf="clienteAtualizar.id!=undefined" [(ngModel)]="clienteAtualizar.nome" [ngModelOptions]="{standalone: true}" class="form-control" type="text" name="name" placeholder="Nome" required>
+              <div class="valid-feedback">Nome</div>
+              <div class="invalid-feedback"> O campo não pode ficar em branco</div>
+            </div>
+
+            <div class="col-md-12">
+              <input *ngIf="clienteAtualizar.id==undefined "[(ngModel)]="cliente.email" class="form-control" type="text" name="email" placeholder="E-mail " required>
+              <input *ngIf="clienteAtualizar.id!=undefined" [(ngModel)]="clienteAtualizar.email" [ngModelOptions]="{standalone: true}" class="form-control" type="text" name="email" placeholder="E-mail" required>
+              <div class="valid-feedback">Email válido</div>
+              <div class="invalid-feedback">Email o campo não pode ficar em branco</div>
+            </div>
+
+            <div class="col-md-12" style="margin-top: 15px">
+              <input *ngIf="clienteAtualizar.id==undefined" [(ngModel)]="cliente.telefone" class="form-control" type="fone" name="fone" placeholder="Telefone">
+              <input *ngIf="clienteAtualizar.id!=undefined" [(ngModel)]="clienteAtualizar.telefone" [ngModelOptions]="{standalone: true}" class="form-control" type="text" name="fone" placeholder="Telefone" required>
+              <div class="valid-feedback">Telefone</div>
+            </div>
+
+            <div class="col-md-12">
+            <input *ngIf="clienteAtualizar.id==undefined" [(ngModel)]="cliente.usuario" class="form-control" type="text" name="usuario" placeholder="Nome de usuário" required>
+            <input *ngIf="clienteAtualizar.id!=undefined" [(ngModel)]="clienteAtualizar.usuario" [ngModelOptions]="{standalone: true}" class="form-control" type="text" name="usuario" placeholder="Nome de usuário" required>
+            <div class="valid-feedback">Usuário</div>
+            <div class="invalid-feedback">Usuário! O campo não pode ficar em branco</div>
+          </div>
+
+            <div class="col-md-12">
+                <input *ngIf="clienteAtualizar.id==undefined" [(ngModel)]="cliente.senha" [ngModelOptions]="{standalone: true}" class="form-control" type="password" name="senha" placeholder="senha" required>
+                <input *ngIf="clienteAtualizar.id!=undefined" [(ngModel)]="clienteAtualizar.senha" [ngModelOptions]="{standalone: true}" class="form-control" type="password" name="senha" placeholder="senha" required>
+              <div class="valid-feedback">Senha</div>
+              <div class="invalid-feedback">A senha não pode ficar em branco</div>
+            </div>
+            
+            <div class="form-button mt-3" style="text-align: center;">
+              <button *ngIf="clienteAtualizar.id==undefined" id="submit" type="submit" class="btn btn-primary" (click)="cadastrarCliente()">Cadastrar</button>
+              <button *ngIf="clienteAtualizar.id!=undefined" style=" margin-left: 10px;" id="submit" type="submit" class="btn btn-primary" (click)="atualizarCliente()">Atualizar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+    <p style="margin-left: 1%;">© 2021 por AgendeExpress.</p>
+</div>
+
+<script>
+
+  (function () {
+    'use strict'
+    const forms = document.querySelectorAll('.requires-validation')
+    Array.from(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+
+</script>

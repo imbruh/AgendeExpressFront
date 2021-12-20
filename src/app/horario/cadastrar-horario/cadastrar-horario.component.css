@@ -1,0 +1,19 @@
+.horario {
+    display: flex;
+    justify-content: center;
+}
+
+.data {
+    margin-top: 10%;
+}
+
+.botao {
+    display: flex;
+    justify-content: center;
+}
+
+.botao button {
+   background-color: #a45785;
+   color: white;
+}
+

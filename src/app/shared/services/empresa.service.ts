@@ -10,7 +10,7 @@ import { EmpresaLoginDTO } from '../model/empresaLoginDTO';
 })
 export class EmpresaService {
 
-  URL_EMPRESA = 'https://agendeexpressback.herokuapp.com/empresa';
+  URL_EMPRESA = 'http://agendeexpressback.herokuapp.com/empresa';
 
   httpOptions = {
     headers: new HttpHeaders({

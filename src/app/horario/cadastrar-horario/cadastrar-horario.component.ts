@@ -41,7 +41,7 @@ export class CadastrarHorarioComponent implements OnInit {
       console.log(this.data)
     this.horarioService.filtrarHorarioDisponivel(this.horarioService.formatarDataHora(this.data), parseInt(empresaLogadaId)).subscribe(
       horarios => {
-        this.horariosDisponiveis = this.horarioService.formatarHora(horarios),
+        this.horariosDisponiveis = this.horarioService.formatarHora(horarios);
         console.log(this.horariosDisponiveis)
       }
     );

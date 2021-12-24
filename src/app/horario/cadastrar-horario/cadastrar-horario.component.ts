@@ -39,9 +39,9 @@ export class CadastrarHorarioComponent implements OnInit {
     let empresaLogadaId = localStorage.getItem("empresa");
     if(empresaLogadaId != undefined){
       console.log(this.data)
-    this.horarioService.filtrarHorarioDisponivel(this.horarioService.formatarDataHora(this.data), parseInt(empresaLogadaId)).subscribe(
+      this.horarioService.filtrarHorarioDisponivel(this.horarioService.formatarDataHora(this.data), parseInt(empresaLogadaId)).subscribe(
       horarios => {
-        this.horariosDisponiveis = this.horarioService.formatarHora(horarios),
+        this.horariosDisponiveis = this.horarioService.formatarHora(horarios);
         console.log(this.horariosDisponiveis)
       }
     );
@@ -68,7 +68,12 @@ export class CadastrarHorarioComponent implements OnInit {
    
     this.horarioService.cadastrarHorario(horarioDTO).subscribe(
       horario => {
-          location.reload()     
+          if(horario){
+            location.reload() 
+          }
+          else{
+            this.mensagemService.snackErro('Você pode cadastrar somente dois horários por dia.')
+          }        
       }
     );
   }

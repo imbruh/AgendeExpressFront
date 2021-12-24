@@ -51,5 +51,4 @@ export class EmpresaService {
   login(empresaLogin: EmpresaLoginDTO): Observable<Empresa> {
     return this.httpClient.post<Empresa>(`${this.URL_EMPRESA}/login`, empresaLogin, this.httpOptions)
   }
-
 }

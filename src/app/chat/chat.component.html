@@ -17,9 +17,9 @@
         <div class="chat-content">
             <div class="card">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" *ngFor="let chatMessage of webSocketService.chatMessages">
-                        <strong>{{chatMessage.user}}Usuario: </strong>
-                        <span>{{chatMessage.message}}</span>
+                    <li class="list-group-item" *ngFor="let chatMessage of chatMessages">
+                        <strong>{{chatMessage.split("/")[0]}}: </strong>
+                        <span>{{chatMessage.split("/")[2]}}</span>
                     </li>
                 </ul>
             </div>
@@ -27,7 +27,8 @@
         <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">
             <div class="chat-send row">
                 <div class="col-2">
-                    <input type="text" class="form-control" name="user" id="input-user" value="usuario" disabled>
+                    <input *ngIf="this.cliente.id != undefined" [(ngModel)]="cliente.nome" type="text" class="form-control" name="user" id="input-user" value="usuario" disabled>
+                    <input *ngIf="this.cliente.id == undefined" [(ngModel)]="empresa.nome" type="text" class="form-control" name="user" id="input-user" value="usuario" disabled>
                 </div>
                 <div class="col-8">
                     <input type="text" class="form-control" name="message" id="input-message" ngModel>
@@ -38,5 +39,4 @@
             </div>
         </form>
     </div>
-
 </main>

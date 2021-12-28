@@ -11,7 +11,7 @@ import { ClienteLoginDTO } from '../model/clienteLoginDTO';
 })
 export class ClienteService {
 
-  URL_USUARIO = 'https://agendeexpressback.herokuapp.com/cliente';
+  URL_USUARIO = 'https://agende-express-back.herokuapp.com/cliente';
 
   httpOptions = {
     headers: new HttpHeaders({

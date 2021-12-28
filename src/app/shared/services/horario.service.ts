@@ -9,7 +9,7 @@ import { HorarioDTO } from '../model/horarioDTO';
 })
 export class HorarioService {
   
-  URL_HORARIO = 'https://agendeexpressback.herokuapp.com/horario';
+  URL_HORARIO = 'https://agende-express-back.herokuapp.com/horario';
 
   httpOptions = {
     headers: new HttpHeaders({

@@ -81,6 +81,7 @@ export class ListarHorarioComponent implements OnInit {
       if(empresaLogadaId != undefined){
         this.horarioService.listarHorarioPorDia(this.horarioService.formatarDataHora(this.hoje), parseInt(empresaLogadaId)).subscribe(
           horario => {
+            console.log(empresaLogadaId)
             console.log(horario)
             this.horarios = horario;
             for (let hr of this.horarios){
@@ -103,7 +104,8 @@ export class ListarHorarioComponent implements OnInit {
 
   listarHorarioPorDia() {
     let empresaId = localStorage.getItem("empresa");
-    if(empresaId != undefined)
+    let empresaLogadaId = localStorage.getItem("empresaLogada");
+    if(empresaId != undefined && empresaId != "0"){
       this.horarioService.listarHorarioPorDia(this.horarioService.formatarDataHora(this.data), parseInt(empresaId)).subscribe(
         horario => {
           this.horarios = horario;
@@ -114,6 +116,19 @@ export class ListarHorarioComponent implements OnInit {
           }
         }
       )
+    }
+    else if(empresaLogadaId != undefined && empresaLogadaId != "0"){
+      this.horarioService.listarHorarioPorDia(this.horarioService.formatarDataHora(this.data), parseInt(empresaLogadaId)).subscribe(
+        horario => {
+          this.horarios = horario;
+          for (let hr of this.horarios){
+            if(hr.diaSemana!=undefined){          
+                hr.diaSemana=DiaSemanaEnum[hr.diaSemana];
+            }
+          }
+        }
+      )
+    }
   }
 
   openDialogCancelarHorario() {
